@@ -10,7 +10,7 @@ app.use(express.json());
 const baseRouter = express.Router();
 
 baseRouter.get("/greeting", (req, res) => {
-  return res.status(200).json("Hello world!");
+  return res.status(200).json("hello world!");
 });
 
 baseRouter.post("/add", (req, res) => {
