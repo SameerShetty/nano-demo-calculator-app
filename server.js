@@ -10,23 +10,19 @@ app.use(express.json());
 const baseRouter = express.Router();
 
 baseRouter.get("/greeting", (req, res) => {
-  return res.status(200).json("hello world!");
+  return res.send("hello world!");
 });
 
 baseRouter.post("/add", (req, res) => {
   const { first, second } = req.body;
-  if (!first || !second) {
-    return res.status(400).json({ message: "Invalid request !!!" });
-  }
-  return res.status(200).json({ result: Number(first) + Number(second) });
+
+  return res.send({ result: Number(first) + Number(second) });
 });
 
 baseRouter.post("/subtract", (req, res) => {
   const { first, second } = req.body;
-  if (!first || !second) {
-    return res.status(400).json({ message: "Invalid request !!!" });
-  }
-  return res.status(200).json({ result: Number(first) - Number(second) });
+
+  return res.send({ result: Number(first) - Number(second) });
 });
 
 app.use(baseUrl, baseRouter);
